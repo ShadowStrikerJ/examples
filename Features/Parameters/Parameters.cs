@@ -47,6 +47,10 @@ namespace LectureExamples
             Console.WriteLine("Before " + A[0] + " " + A[1]);
             Swap(ref A[0], ref A[1]);
             Console.WriteLine(" After " + A[0] + " " + A[1]);
+
+            int a = 7;
+            int b = 9;
+            Swap(ref a, ref b);
         }
 
         /// <summary>
@@ -57,7 +61,6 @@ namespace LectureExamples
         public static int SolveQuadratic(double a, double b, double c, 
                                             out double x1, out double x2)
         {
-
             // Out parameters must be given values
             x1 = 0;
             x2 = 0;
