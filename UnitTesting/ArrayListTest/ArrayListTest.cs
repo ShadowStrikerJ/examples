@@ -84,5 +84,31 @@ namespace ArrayListTest
             int n = (int) listAccessor.Invoke("Scale", parameters);
             Assert.AreEqual(12, n);
         }
+/*
+        [TestMethod]
+        public void AnotherTest()
+        {
+            ArrayList list = new ArrayList();
+            list.AddLast("7");
+            list.AddLast("8");
+            Assert.AreEqual("8", list.Get(1));
+            try
+            {
+                list.Get(-1);
+                Assert.Fail();
+            }
+            catch (IndexOutOfRangeException)
+            {
+            }
+            try
+            {
+                list.Get(2);
+                Assert.Fail();
+            }
+            catch (IndexOutOfRangeException)
+            {
+            }
+        }
+        */
     }
 }
