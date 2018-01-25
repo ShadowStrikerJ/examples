@@ -63,6 +63,7 @@ namespace LectureExamples
         /// <exception cref="System.ArgumentException">If d == 0</exception>
         public Rat(int n, int d)
         {
+
             if (d == 0)
             {
                 throw new ArgumentException("Zero denominator not allowed");
@@ -132,9 +133,9 @@ namespace LectureExamples
         /// </summary>
         public override bool Equals(object o)
         {
-            if (o is Rat)
+            if (o is Rat r)
             {
-                Rat r = (Rat)o;
+                this.normalize();
                 r.normalize();
                 return this.num == r.num && this.den == r.den;
             }

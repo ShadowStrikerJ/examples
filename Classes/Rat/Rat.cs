@@ -140,7 +140,8 @@ namespace LectureExamples
             // Make sure r is non-null and its numerator and denominator
             // are the same as those of this.
             return
-                !ReferenceEquals(r, null) &&
+                //!ReferenceEquals(r, null) &&
+                !(r is null) &&
                 this.num == r.num &&
                 this.den == r.den;
         }
@@ -185,6 +186,11 @@ namespace LectureExamples
         /// </summary>
         public static implicit operator Rat(int n)
         {
+            //double d = 3.5;
+            //int x = (int)d;
+            //Rat r = (Rat)7;
+
+            //Rat r = 7;
             return new Rat(n);
         }
     }
