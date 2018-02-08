@@ -8,3 +8,5 @@
   <State Name="Washington" Capital="Olympia" />
   <State Name="Idaho" Capital="Boise" />
 </States>
+
+<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="states3.xsd" -->

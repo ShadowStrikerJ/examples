@@ -26,14 +26,14 @@ namespace RegexAndXML
         /// </summary>
         public static void Main()
         {
-            WriteExample1();
-            WriteExample2();
+            //WriteExample1();
+            //WriteExample2();
            // WriteExample3();
 
-            ReadExample1();
-            Console.ReadLine();
-            ReadExample2();
-            Console.ReadLine();
+            //ReadExample1();
+            //Console.ReadLine();
+            //ReadExample2();
+            //Console.ReadLine();
             ReadExample3();
             Console.ReadLine();
         }
@@ -179,8 +179,7 @@ namespace RegexAndXML
         /// </summary>
         public static void ReadExample3()
         {
-            // Create the XmlSchemaSet class.  Anything with the namespace "urn:states-schema" will
-            // be validated against states3.xsd.
+            // Create an XmlSchemaSet object.
             XmlSchemaSet sc = new XmlSchemaSet();
 
             // NOTE: To read states3.xsd this way, it must be stored in the same folder with the

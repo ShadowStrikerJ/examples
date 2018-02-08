@@ -41,17 +41,17 @@ namespace Inherit
 
             // All of the above, stored in an array of Speakers
             Console.WriteLine("All speak simultaneously, in the same order, after being stored as Speakers:");
-            Console.WriteLine(SpeakSimultaneously(new Speaker[] { dog, animal1, spider, animal2, phone }));
+            Console.WriteLine(SpeakSimultaneously(new ISpeaker[] { dog, animal1, spider, animal2, phone }));
             Console.ReadLine();
         }
 
         /// <summary>
         /// Appends the result of all the speakers speaking and returns the resulting string.
         /// </summary>
-        public static String SpeakSimultaneously(Speaker[] speakers)
+        public static String SpeakSimultaneously(ISpeaker[] speakers)
         {
             String result = "";
-            foreach (Speaker s in speakers)
+            foreach (ISpeaker s in speakers)
             {
                 result += s.Speak() + " ";
             }
@@ -63,7 +63,7 @@ namespace Inherit
     /// <summary>
     /// An interface that requires a Speak() method.
     /// </summary>
-    public interface Speaker
+    public interface ISpeaker
     {
         /// <summary>
         /// Returns what the Speaker has to say
@@ -78,7 +78,7 @@ namespace Inherit
     /// cannot be directly constructed.  Instead, you must
     /// instantiate one of its derived classes.
     /// </summary>
-    public abstract class Animal : Speaker
+    public abstract class Animal : ISpeaker
     {
         /// <summary>
         /// Create an Animal with the specified name.
@@ -262,7 +262,7 @@ namespace Inherit
     /// <summary>
     /// A Phone isn't an animal, but it is a speaker.
     /// </summary>
-    public class Phone : Speaker
+    public class Phone : ISpeaker
     {
         public String Speak()
         {
