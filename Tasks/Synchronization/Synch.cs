@@ -53,7 +53,7 @@ namespace Synchronization
             {
                 while (n > 0)
                 {
-                    lock (this)
+                    //lock (this)
                     {
                         Total++;
                     }
@@ -72,7 +72,7 @@ namespace Synchronization
             {
                 while (n > 0)
                 {
-                    lock(this)
+                    //lock(this)
                     {
                         Total--;
                     }

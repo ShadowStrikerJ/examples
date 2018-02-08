@@ -30,7 +30,6 @@ namespace Primes
                 int minPrime = i * 2 + 1;
                 int delta = 2 * n;
                 tasks[i] = Task.Run(() => Primes.CountPrimesInInterval(minPrime, maxPrime, delta));
-                //System.Threading.Thread.Sleep(500);
             }
 
             int count = 0;
