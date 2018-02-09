@@ -27,8 +27,8 @@ namespace Synchronization
         /// </summary>
         public void Compute(int n)
         {
-            Task t1 = new Task(() => Increment(n));
-            Task t2 = new Task(() => Decrement(n));
+            Task t1 = new Task(() => this.Increment(n));
+            Task t2 = new Task(() => this.Decrement(n));
             t1.Start();
             t2.Start();
 

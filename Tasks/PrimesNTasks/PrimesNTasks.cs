@@ -10,7 +10,7 @@ namespace Primes
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            int count = CountOddPrimesNTasks(14000000, 8);
+            int count = CountOddPrimesNTasks(14000000, 7);
             sw.Stop();
             Console.WriteLine("Time = " + sw.ElapsedMilliseconds + " msecs");
             Console.WriteLine(count);
