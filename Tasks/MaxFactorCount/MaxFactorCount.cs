@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using System;
+using System.Threading;
 
 namespace Factors
 {
@@ -16,6 +18,7 @@ namespace Factors
             {
                 int begin = i + 1;
                 tasks[i] = Task.Run(() => FindMaxFactorsInInterval(begin, limit, nTasks));
+                //Thread.Sleep(500);
             }
 
             // Find and return the best result found by the Tasks
@@ -43,6 +46,7 @@ namespace Factors
         /// </summary>
         protected int FindMaxFactorsInInterval(int lo, int hi, int delta)
         {
+            //Console.WriteLine("===> " + lo);
             int maxFactors = 0;
             int maxCount = 0;
             for (int number = lo; number <= hi; number += delta)

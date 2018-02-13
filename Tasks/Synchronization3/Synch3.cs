@@ -18,7 +18,7 @@ namespace Synchronization
         /// <summary>
         /// This variable is shared by the two tasks created below.
         /// </summary>
-        private int Total { get; set; }
+        private int Total;
 
         /// <summary>
         /// Creates two tasks.  One increments Total n times, the other
@@ -42,42 +42,28 @@ namespace Synchronization
             Console.ReadLine();
         }
 
-        private readonly object sync = new object();
-
         /// <summary>
         /// Increments Total n times.
         /// </summary>
         public void Increment(int n)
         {
-            //lock (this)
+            while (n > 0)
             {
-                while (n > 0)
-                {
-                    lock (sync)
-                    {
-                        Total++;
-                    }
-                    n--;
-                }
+                Interlocked.Increment(ref Total);
+                n--;
             }
             Console.WriteLine("Add done");
         }
 
         /// <summary>
-        /// Decrements Total n times.
+        /// Decements Total n times.
         /// </summary>
         public void Decrement(int n)
         {
-            //lock (this)
+            while (n > 0)
             {
-                while (n > 0)
-                {
-                    lock(sync)
-                    {
-                        Total--;
-                    }
-                    n--;
-                }
+                Interlocked.Decrement(ref Total);
+                n--;
             }
             Console.WriteLine("Sub done");
         }

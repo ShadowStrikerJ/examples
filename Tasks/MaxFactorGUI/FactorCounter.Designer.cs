@@ -1,6 +1,6 @@
 ﻿namespace MaxFactorGUI
 {
-    partial class Form1
+    partial class FactorCounter
     {
         /// <summary>
         /// Required designer variable.
@@ -35,11 +35,12 @@
             this.factorCount = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.startButton2 = new System.Windows.Forms.Button();
+            this.start_button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // highLimit
             // 
-            this.highLimit.Location = new System.Drawing.Point(136, 41);
+            this.highLimit.Location = new System.Drawing.Point(165, 41);
             this.highLimit.Name = "highLimit";
             this.highLimit.Size = new System.Drawing.Size(180, 22);
             this.highLimit.TabIndex = 0;
@@ -57,11 +58,11 @@
             // startButton1
             // 
             this.startButton1.Enabled = false;
-            this.startButton1.Location = new System.Drawing.Point(37, 151);
+            this.startButton1.Location = new System.Drawing.Point(37, 146);
             this.startButton1.Name = "startButton1";
-            this.startButton1.Size = new System.Drawing.Size(279, 23);
+            this.startButton1.Size = new System.Drawing.Size(279, 30);
             this.startButton1.TabIndex = 2;
-            this.startButton1.Text = "Start";
+            this.startButton1.Text = "Start 1";
             this.startButton1.UseVisualStyleBackColor = true;
             this.startButton1.Click += new System.EventHandler(this.startButton1_Click);
             // 
@@ -70,13 +71,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(37, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 17);
+            this.label2.Size = new System.Drawing.Size(118, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Factor Count";
+            this.label2.Text = "Has Most Factors";
             // 
             // factorCount
             // 
-            this.factorCount.Location = new System.Drawing.Point(136, 88);
+            this.factorCount.Location = new System.Drawing.Point(164, 88);
             this.factorCount.Name = "factorCount";
             this.factorCount.ReadOnly = true;
             this.factorCount.Size = new System.Drawing.Size(180, 22);
@@ -85,9 +86,9 @@
             // cancelButton
             // 
             this.cancelButton.Enabled = false;
-            this.cancelButton.Location = new System.Drawing.Point(37, 225);
+            this.cancelButton.Location = new System.Drawing.Point(37, 260);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(279, 23);
+            this.cancelButton.Size = new System.Drawing.Size(279, 30);
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -98,17 +99,28 @@
             this.startButton2.Enabled = false;
             this.startButton2.Location = new System.Drawing.Point(37, 186);
             this.startButton2.Name = "startButton2";
-            this.startButton2.Size = new System.Drawing.Size(279, 22);
+            this.startButton2.Size = new System.Drawing.Size(279, 30);
             this.startButton2.TabIndex = 6;
-            this.startButton2.Text = "Start";
+            this.startButton2.Text = "Start 2";
             this.startButton2.UseVisualStyleBackColor = true;
             this.startButton2.Click += new System.EventHandler(this.startButton2_Click);
             // 
-            // Form1
+            // start_button1
+            // 
+            this.start_button1.Location = new System.Drawing.Point(40, 223);
+            this.start_button1.Name = "start_button1";
+            this.start_button1.Size = new System.Drawing.Size(276, 30);
+            this.start_button1.TabIndex = 7;
+            this.start_button1.Text = "Start 3";
+            this.start_button1.UseVisualStyleBackColor = true;
+            this.start_button1.Click += new System.EventHandler(this.startButton3_Click);
+            // 
+            // FactorCounter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 287);
+            this.ClientSize = new System.Drawing.Size(473, 329);
+            this.Controls.Add(this.start_button1);
             this.Controls.Add(this.startButton2);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.factorCount);
@@ -116,7 +128,7 @@
             this.Controls.Add(this.startButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.highLimit);
-            this.Name = "Form1";
+            this.Name = "FactorCounter";
             this.Text = "Max Factor Counter";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,6 +144,7 @@
         private System.Windows.Forms.TextBox factorCount;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button startButton2;
+        private System.Windows.Forms.Button start_button1;
     }
 }
 

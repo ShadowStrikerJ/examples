@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimesTwoTasks", "PrimesTwoTasks\PrimesTwoTasks.csproj", "{045EAC56-B14E-4280-B559-3D486A855742}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synchronization", "Synchronization\Synchronization.csproj", "{05609E31-4D60-4167-89E9-08070E6E3069}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxFactorGUI", "MaxFactorGUI\MaxFactorGUI.csproj", "{98E6A083-6594-46FD-8C71-4F1904F65788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synchronization2", "Synchronization2\Synchronization2.csproj", "{B56E139D-442A-4D6A-A26B-DD17EE17345F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synchronization3", "Synchronization3\Synchronization3.csproj", "{D9AEC093-FF7F-4C8A-91EC-E9676B21AD3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +61,19 @@ Global
 		{98E6A083-6594-46FD-8C71-4F1904F65788}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98E6A083-6594-46FD-8C71-4F1904F65788}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98E6A083-6594-46FD-8C71-4F1904F65788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56E139D-442A-4D6A-A26B-DD17EE17345F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56E139D-442A-4D6A-A26B-DD17EE17345F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56E139D-442A-4D6A-A26B-DD17EE17345F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56E139D-442A-4D6A-A26B-DD17EE17345F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9AEC093-FF7F-4C8A-91EC-E9676B21AD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AEC093-FF7F-4C8A-91EC-E9676B21AD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AEC093-FF7F-4C8A-91EC-E9676B21AD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AEC093-FF7F-4C8A-91EC-E9676B21AD3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27FEF55E-D1B6-4F07-A19C-641796D09C7D}
 	EndGlobalSection
 EndGlobal

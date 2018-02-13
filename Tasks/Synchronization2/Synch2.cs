@@ -27,8 +27,8 @@ namespace Synchronization
         /// </summary>
         public void Compute(int n)
         {
-            Task t1 = new Task(() => this.Increment(n));
-            Task t2 = new Task(() => this.Decrement(n));
+            Task t1 = new Task(() => this.Set(n, 0));
+            Task t2 = new Task(() => this.Set(n, 1));
             t1.Start();
             t2.Start();
 
@@ -42,44 +42,17 @@ namespace Synchronization
             Console.ReadLine();
         }
 
-        private readonly object sync = new object();
-
         /// <summary>
-        /// Increments Total n times.
+        /// Sets Total to value n times
         /// </summary>
-        public void Increment(int n)
+        public void Set(int n, int value)
         {
-            //lock (this)
+            while (n > 0)
             {
-                while (n > 0)
-                {
-                    lock (sync)
-                    {
-                        Total++;
-                    }
-                    n--;
-                }
+                Total = value;
+                n--;
             }
-            Console.WriteLine("Add done");
-        }
-
-        /// <summary>
-        /// Decrements Total n times.
-        /// </summary>
-        public void Decrement(int n)
-        {
-            //lock (this)
-            {
-                while (n > 0)
-                {
-                    lock(sync)
-                    {
-                        Total--;
-                    }
-                    n--;
-                }
-            }
-            Console.WriteLine("Sub done");
+            Console.WriteLine("Set " + value + " done");
         }
     }
 }

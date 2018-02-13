@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace MaxFactorGUI
 {
-    public partial class Form1 : Form
+    public partial class FactorCounter : Form
     {
         private CancellationTokenSource tokenSource;
 
-        public Form1()
+        public FactorCounter()
         {
             InitializeComponent();
         }
@@ -37,6 +37,9 @@ namespace MaxFactorGUI
             }
         }
 
+        /// <summary>
+        /// This runs the factoring algorithm on the GUI event thread.
+        /// </summary>
         private void startButton1_Click(object sender, EventArgs e)
         {
             int limit;
@@ -47,13 +50,16 @@ namespace MaxFactorGUI
                 highLimit.Enabled = false;
                 Factors.MaxFactorCount counter = new Factors.MaxFactorCount();
                 int count = counter.FindMaxFactors(limit, 2);
-                factorCount.Text = count + " has the most factors";
+                factorCount.Text = count.ToString();
                 startButton1.Enabled = true;
                 startButton2.Enabled = true;
                 highLimit.Enabled = true;
             }
         }
 
+        /// <summary>
+        /// This runs the factoring algorithm on the GUI event thread with a cancellation token
+        /// </summary>
         private void startButton2_Click(object sender, EventArgs e)
         {
             int limit;
@@ -69,23 +75,54 @@ namespace MaxFactorGUI
             }
         }
 
+        /// <summary>
+        /// This runs the factoring algorithm on the GUI event thread with a cancellation token, and
+        /// also uses Invoke when manipulating GUI objects.
+        /// </summary>
+        private void startButton3_Click(object sender, EventArgs e)
+        {
+            int limit;
+            if (Int32.TryParse(highLimit.Text, out limit))
+            {
+                startButton1.Enabled = false;
+                startButton2.Enabled = false;
+                highLimit.Enabled = false;
+                cancelButton.Enabled = true;
+
+                tokenSource = new CancellationTokenSource();
+                Task.Run(() => DoFactorCount3(limit, 2, tokenSource.Token));
+            }
+        }
+
         private void DoFactorCount(int limit, int nTasks, CancellationToken token)
         {
             FactorsToken.MaxFactorCount counter = new FactorsToken.MaxFactorCount();
             try
             {
                 int count = counter.FindMaxFactors(limit, nTasks, token);
-                //ResetAfterCancel(count.ToString());
-                factorCount.Invoke((Action)(() => ResetAfterCancel(count.ToString())));
+                DisplayResult(count.ToString());
             }
             catch (OperationCanceledException)
             {
-                factorCount.Invoke((Action) (() => ResetAfterCancel("Canceled")));
-                //ResetAfterCancel("Canceled");
+                DisplayResult("Canceled");
             }
         }
 
-        private void ResetAfterCancel (string message)
+        private void DoFactorCount3(int limit, int nTasks, CancellationToken token)
+        {
+            FactorsToken.MaxFactorCount counter = new FactorsToken.MaxFactorCount();
+            try
+            {
+                int count = counter.FindMaxFactors(limit, nTasks, token);
+                factorCount.Invoke((Action)(() => DisplayResult(count.ToString())));
+            }
+            catch (OperationCanceledException)
+            {
+                factorCount.Invoke((Action) (() => DisplayResult("Canceled")));
+            }
+        }
+
+        private void DisplayResult (string message)
         {
             factorCount.Text = message;
             startButton1.Enabled = true;

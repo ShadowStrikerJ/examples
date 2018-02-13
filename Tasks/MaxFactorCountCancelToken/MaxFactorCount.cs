@@ -20,7 +20,8 @@ namespace FactorsToken
                 tasks[i] = Task.Run(() => FindMaxFactorsInInterval(begin, limit, nTasks, token), token);
             }
 
-            // Wait for all the tasks to terminate.  This will throw an OperationCanceledException
+            // Wait for all the tasks to terminate.
+            // This will throw an OperationCanceledException
             // if any of the tasks is canceled.
             Task.WaitAll(tasks, token);
 
