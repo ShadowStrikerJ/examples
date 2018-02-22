@@ -11,7 +11,7 @@ namespace Restful
     {
         // You'll need to put your own personal access token here
         // It needs to have repo deletion capability
-        private const string TOKEN = "5a2fe1a5e0c112a990eb8b6942cce6244f25bdf4";
+        private const string TOKEN =                                                                                                                       "fb8c1d6cd1880c8cc4851aa88138412f37c796c8";
 
         // You'll need to put your own GitHub user name here
         private const string USER_NAME = "josephzachary";
@@ -217,6 +217,7 @@ namespace Restful
                 // properties.
                 dynamic data = new ExpandoObject();
                 data.name = "DemoRepo";
+                //data["123"] = "hello";
                 data.description = "A test repository for CS 3500";
                 data.has_issues = false;
 
