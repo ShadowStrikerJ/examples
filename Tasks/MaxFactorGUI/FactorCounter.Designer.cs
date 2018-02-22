@@ -35,7 +35,7 @@
             this.factorCount = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.startButton2 = new System.Windows.Forms.Button();
-            this.start_button1 = new System.Windows.Forms.Button();
+            this.startButton3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // highLimit
@@ -58,6 +58,7 @@
             // startButton1
             // 
             this.startButton1.Enabled = false;
+            this.startButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startButton1.Location = new System.Drawing.Point(37, 146);
             this.startButton1.Name = "startButton1";
             this.startButton1.Size = new System.Drawing.Size(279, 30);
@@ -105,22 +106,22 @@
             this.startButton2.UseVisualStyleBackColor = true;
             this.startButton2.Click += new System.EventHandler(this.startButton2_Click);
             // 
-            // start_button1
+            // startButton3
             // 
-            this.start_button1.Location = new System.Drawing.Point(40, 223);
-            this.start_button1.Name = "start_button1";
-            this.start_button1.Size = new System.Drawing.Size(276, 30);
-            this.start_button1.TabIndex = 7;
-            this.start_button1.Text = "Start 3";
-            this.start_button1.UseVisualStyleBackColor = true;
-            this.start_button1.Click += new System.EventHandler(this.startButton3_Click);
+            this.startButton3.Location = new System.Drawing.Point(40, 223);
+            this.startButton3.Name = "startButton3";
+            this.startButton3.Size = new System.Drawing.Size(276, 30);
+            this.startButton3.TabIndex = 7;
+            this.startButton3.Text = "Start 3";
+            this.startButton3.UseVisualStyleBackColor = true;
+            this.startButton3.Click += new System.EventHandler(this.startButton3_Click);
             // 
             // FactorCounter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 329);
-            this.Controls.Add(this.start_button1);
+            this.Controls.Add(this.startButton3);
             this.Controls.Add(this.startButton2);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.factorCount);
@@ -144,7 +145,7 @@
         private System.Windows.Forms.TextBox factorCount;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button startButton2;
-        private System.Windows.Forms.Button start_button1;
+        private System.Windows.Forms.Button startButton3;
     }
 }
 

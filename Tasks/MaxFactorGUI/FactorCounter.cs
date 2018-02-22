@@ -27,12 +27,14 @@ namespace MaxFactorGUI
             {
                 startButton1.Enabled = true;
                 startButton2.Enabled = true;
+                startButton3.Enabled = true;
                 factorCount.Text = "";
             }
             else
             {
                 startButton1.Enabled = false;
                 startButton2.Enabled = false;
+                startButton3.Enabled = false;
                 factorCount.Text = "";
             }
         }
@@ -47,12 +49,14 @@ namespace MaxFactorGUI
             {
                 startButton1.Enabled = false;
                 startButton2.Enabled = false;
+                startButton3.Enabled = false;
                 highLimit.Enabled = false;
                 Factors.MaxFactorCount counter = new Factors.MaxFactorCount();
                 int count = counter.FindMaxFactors(limit, 2);
                 factorCount.Text = count.ToString();
                 startButton1.Enabled = true;
                 startButton2.Enabled = true;
+                startButton3.Enabled = true;
                 highLimit.Enabled = true;
             }
         }
@@ -67,6 +71,7 @@ namespace MaxFactorGUI
             {
                 startButton1.Enabled = false;
                 startButton2.Enabled = false;
+                startButton3.Enabled = false;
                 highLimit.Enabled = false;
                 cancelButton.Enabled = true;
 
@@ -86,6 +91,7 @@ namespace MaxFactorGUI
             {
                 startButton1.Enabled = false;
                 startButton2.Enabled = false;
+                startButton3.Enabled = false;
                 highLimit.Enabled = false;
                 cancelButton.Enabled = true;
 
@@ -127,6 +133,7 @@ namespace MaxFactorGUI
             factorCount.Text = message;
             startButton1.Enabled = true;
             startButton2.Enabled = true;
+            startButton3.Enabled = true;
             highLimit.Enabled = true;
             cancelButton.Enabled = false;
         }
