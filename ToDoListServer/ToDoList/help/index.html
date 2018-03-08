@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDoList API</title>
+	<meta charset="utf-8" />
+	<style>
+		body {
+			font-size: 14px;
+			color: black;
+			font-family: sans-serif;
+			width: 700px;
+		}
+
+		h1, h2 {
+			text-align: center;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		li {
+			margin: 0 0 8px 0;
+		}
+
+		hr {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		th, td {
+			padding: 4px;
+			text-align: left;
+		}
+
+		pre {
+			font-family: sans-serif;
+			border: 1px solid gray;
+			border-radius: 5px;
+			background-color: #EEEEEE;
+		}
+
+			pre span {
+				font-size: 14px;
+				padding: 0px;
+			}
+	</style>
+</head>
+<body>
+
+	<h1>ToDoList API</h1>
+
+	<p>
+		The exact response to undefined or malformed HTTP requests is server-dependent and is not specified in this API,
+		except to note that some sort of error status code will be included in the response.
+	</p>
+
+	<p>
+		The response status code 500 (InternalServerError) is used to report, among other things, unhandled exceptions in the
+		service.  Sometimes, trying the same service call again will succeed, depending on the nature of the error.
+	</p>
+
+	<p>
+		The URLs given below are relative to
+		<a href="http://localhost:44444/ToDo.svc/">http://localhost:44444/ToDo.svc/</a>.
+	</p>
+
+	<p>
+		The ToDoList server keeps track of a set of users and a set of ToDo items.
+	</p>
+
+	<h2>Register User</h2>
+
+	<p>
+		Register a user.
+
+		<ul>
+			<li>
+				If Name is null, or is empty when trimmed, responds with status 403 (Forbidden).
+			</li>
+			<li>
+				Otherwise, creates a new user and returns a unique ID that identifies the
+				user.  The returned ID should be used to identify the user in subsequent requests.
+				Responds with status 201 (Created).
+			</li>
+		</ul>
+	</p>
+
+	<pre><span>
+    POST RegisterUser
+    </span></pre>
+
+	<h4>Input</h4>
+
+	<table border="1">
+		<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+		<tr><td>Name</td><td>string</td><td>Name of the user</td></tr>
+		<tr><td>Email</td><td>string</td><td>Email address of the user</td></tr>
+	</table>
+
+	<h4>Example</h4>
+
+	<pre><span>
+    POST users
+    {
+        "Name": "Joe",
+        "Email": "a@b.com"
+    }
+    </span></pre>
+
+	<h4>Response</h4>
+
+	<pre><span>
+    Status: 201 Created
+    9eb536af-50a1-476f-856e-ffff8f1b25d2"
+    </span></pre>
+
+	<p>&nbsp;</p>
+
+	<h2>Add Item</h2>
+
+	<p>
+		Add an item to the ToDo list
+		<ul>
+			<li>
+				If the UserID is unknown, responds with status 403 (Forbidden).
+			</li>
+			<li>
+				Otherwise, adds the item to the list and returns the ID number of the item.
+				Responds with status 201 (Created).
+			</li>
+		</ul>
+	</p>
+
+	<pre><span>
+    POST AddItem
+    </span></pre>
+
+	<h4>Input</h4>
+
+	<table border="1">
+
+		<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+
+		<tr><td>UserID</td><td>string</td><td>ID of user adding the task</td></tr>
+		<tr><td>Description</td><td>int</td><td>Description of the task</td></tr>
+
+	</table>
+
+	<h4>Example</h4>
+
+	<pre><span>
+    POST AddItem
+    {
+        "UserID": "9eb536af-50a1-476f-856e-ffff8f1b25d2",
+        "Description": "Mow Yard"
+    }
+    </span></pre>
+
+	<h4>Response</h4>
+
+	<pre><span>
+	Status: 201 Created
+	175cd125ce-900e-44fd-9a9f-f70a0357885c
+</span></pre>
+
+	<p>&nbsp;</p>
+
+	<h2>Mark Item Completed</h2>
+
+	<p>
+		Mark an existing item completed
+		<ul>
+			<li>
+				If ItemID is unknown, responds with	status 403 (Forbidden).
+			</li>
+			<li>
+				Otherwise, marks the item as completed and responds with 200 (OK).
+			</li>
+		</ul>
+	</p>
+
+	<pre><span>
+    PUT MarkCompleted/{ItemID}
+    </span></pre>
+
+	<h4>Input</h4>
+
+	<table border="1">
+
+		<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+
+		<tr><td>ItemID</td><td>string</td><td>ID of item to mark completed</td></tr>
+
+	</table>
+
+	<h4>Example</h4>
+
+	<pre><span>
+	PUT MarkCompleted/5cd125ce-900e-44fd-9a9f-f70a0357885c
+</span></pre>
+
+	<h4>Response</h4>
+
+	<pre><span>
+    Status: 200 OK
+    </span></pre>
+
+
+	<p>&nbsp;</p>
+
+	<h2>Delete Item</h2>
+
+	<p>
+		Delete an existing item
+		<ul>
+			<li>
+				If ItemID is unknown, responds with	status 403 (Forbidden).
+			</li>
+			<li>
+				Otherwise, deletes the item and responds with 200 (OK).
+			</li>
+		</ul>
+	</p>
+
+	<pre><span>
+    DELETE DeleteItem/{ItemID}
+    </span></pre>
+
+	<h4>Input</h4>
+
+	<table border="1">
+
+		<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+
+		<tr><td>ItemID</td><td>string</td><td>ID of item to delete</td></tr>
+
+	</table>
+
+	<h4>Example</h4>
+
+	<pre><span>
+    DELETE DeleteItem/175cd125ce-900e-44fd-9a9f-f70a0357885c
+    </span></pre>
+
+	<h4>Response</h4>
+
+	<pre><span>
+    Status: 200 OK
+    </span></pre>
+
+	<p>&nbsp;</p>
+
+	<h2>Get All Items</h2>
+
+	<p>
+		Get information about all items.
+		<ul>
+			<li>
+				If UserID is given and is invalid, responds with status 403 (Forbidden).
+			</li>
+			<li>
+				Returns information about items.  If CompletedOnly is true, includes only
+				completed tasks.  UserID exists, includes only tasks belonging to that user.
+			</li>
+		</ul>
+	</p>
+
+	<pre><span>
+	GET GetAllItems?completed={CompletedOnly}&user={UserID}
+</span></pre>
+
+	<h4>Parameters</h4>
+
+	<table border="1">
+
+		<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+
+		<tr><td>CompletedOnly</td><td>bool</td><td><b>(Optional)</b> &nbsp;</td></tr>
+		<tr><td>UserID</td><td>string</td><td><b>(Optional)</b> &nbsp;</td></tr>
+	</table>
+
+	<h4>Example</h4>
+
+	<pre><span>
+	GET GetAllItems?completed=true
+</span></pre>
+
+	<h4>Response</h4>
+
+	<pre><span>
+    Status: 200 OK
+    [
+        {
+            "ItemID": "5cd125ce-900e-44fd-9a9f-f70a0357885c",
+            "Description": "Mow Yard",
+            "Completed" : true,
+            "UserID": "9eb536af-50a1-476f-856e-ffff8f1b25d2"
+        },
+        {
+            "ItemID": "6xa42314-900e-44fd-9a9f-f70a0357885c",
+            "Description": "Shovel Snow",
+            "Completed" : true,
+            "UserID": "9a8814dc-50a1-476f-856e-ffff8f1b25d2"
+        },
+    ]
+</span></pre>
+
+</body>
+</html>
+
+
