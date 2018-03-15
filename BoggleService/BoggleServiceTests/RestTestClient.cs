@@ -44,8 +44,7 @@ namespace Boggle
         private Uri domain;
 
         /// <summary>
-        /// Creates an HttpClient for communicating with GitHub.  The GitHub API requires specific information
-        /// to appear in each request header.
+        /// Creates an HttpClient.
         /// </summary>
         private HttpClient CreateClient()
         {
