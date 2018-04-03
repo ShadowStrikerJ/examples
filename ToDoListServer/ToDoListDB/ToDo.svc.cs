@@ -96,9 +96,11 @@ namespace ToDoList
                         command.Parameters.AddWithValue("@Email", user.Email.Trim());
 
                         // This executes the command within the transaction over the connection.  The number of rows
-                        // that were modified is returned.  Perhaps I should check and make sure that 1 is returned
-                        // as expected.
-                        command.ExecuteNonQuery();
+                        // that were modified is returned.
+                        if (command.ExecuteNonQuery() != 1)
+                        {
+                            throw new Exception("Query failed unexpectedly");
+                        }
                         SetStatus(Created);
 
                         // Immediately before each return that appears within the scope of a transaction, it is
@@ -161,6 +163,7 @@ namespace ToDoList
                             if (!reader.HasRows)
                             {
                                 SetStatus(Forbidden);
+                                reader.Close();
                                 trans.Commit();
                                 return null;
                             }
@@ -272,6 +275,7 @@ namespace ToDoList
                                 if (!reader.HasRows)
                                 {
                                     SetStatus(Forbidden);
+                                    reader.Close();
                                     trans.Commit();
                                     return null;
                                 }

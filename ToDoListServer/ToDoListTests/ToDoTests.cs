@@ -52,7 +52,7 @@ namespace UnitTestProject1
         [ClassInitialize()]
         public static void StartIIS(TestContext testContext)
         {
-            IISAgent.Start(@"/site:""ToDoList"" /apppool:""Clr4IntegratedAppPool"" /config:""..\..\..\.vs\config\applicationhost.config""");
+            //IISAgent.Start(@"/site:""ToDoList"" /apppool:""Clr4IntegratedAppPool"" /config:""..\..\..\.vs\config\applicationhost.config""");
         }
 
         /// <summary>
@@ -61,13 +61,13 @@ namespace UnitTestProject1
         [ClassCleanup()]
         public static void StopIIS()
         {
-            IISAgent.Stop();
+            //IISAgent.Stop();
         }
 
         /// <summary>
         /// This client is used in all the test cases.
         /// </summary>
-        private RestClient client = new RestClient("http://localhost:50000/");
+        private RestClient client = new RestClient("http://localhost:44444/");
 
         [TestMethod]
         public void TestMethod1()
